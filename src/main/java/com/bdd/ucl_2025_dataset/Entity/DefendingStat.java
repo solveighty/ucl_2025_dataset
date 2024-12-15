@@ -16,7 +16,7 @@ public class DefendingStat {
     @MapsId
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "player_id", nullable = false)
-    private Player players;
+    private Player player;
 
     @Column(name = "balls_recovered")
     private Integer ballsRecovered;

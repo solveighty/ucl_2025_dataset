@@ -16,7 +16,7 @@ public class KeyStat {
     @MapsId
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "player_id", nullable = false)
-    private Player players;
+    private Player player;
 
     @Column(name = "distance_covered")
     private Float distanceCovered;

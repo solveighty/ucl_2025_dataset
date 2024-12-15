@@ -16,7 +16,7 @@ public class GoalsStat {
     @MapsId
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "player_id", nullable = false)
-    private Player players;
+    private Player player;
 
     @Column(name = "goals")
     private Integer goals;

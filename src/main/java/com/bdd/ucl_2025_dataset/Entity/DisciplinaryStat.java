@@ -16,7 +16,7 @@ public class DisciplinaryStat {
     @MapsId
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "player_id", nullable = false)
-    private Player players;
+    private Player player;
 
     @Column(name = "fouls_committed")
     private Integer foulsCommitted;

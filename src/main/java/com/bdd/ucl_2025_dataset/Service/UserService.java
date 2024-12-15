@@ -75,4 +75,8 @@ public class UserService {
         String enteredPasswordHash = PasswordEncoder.encode(enteredPassword);
         return enteredPasswordHash.equals(storedHash);
     }
+
+    public Optional<UserEntity> getUsuarioByUsuario(String usuario) {
+        return userRepository.findByUsuario(usuario);
+    }
 }

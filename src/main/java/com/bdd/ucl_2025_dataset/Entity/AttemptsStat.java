@@ -16,7 +16,7 @@ public class AttemptsStat {
     @MapsId
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "player_id", nullable = false)
-    private Player players;
+    private Player player;
 
     @Column(name = "total_attempts")
     private Integer totalAttempts;
