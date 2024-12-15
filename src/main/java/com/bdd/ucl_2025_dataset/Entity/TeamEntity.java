@@ -1,37 +1,29 @@
 package com.bdd.ucl_2025_dataset.Entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "teams")
-public class Team {
+public class TeamEntity {
     @Id
-    @Column(name = "team_id", nullable = false)
-    private Integer id;
+    @Column(name = "team_id")
+    private Integer teamId;
 
-    @Column(name = "country", nullable = false, length = 14)
     private String country;
-
-    @Column(name = "team", nullable = false, length = 30)
     private String team;
-
-    @Column(name = "logo", nullable = false, length = 105)
     private String logo;
 
-    @OneToMany(mappedBy = "team")
-    private Set<Player> players = new LinkedHashSet<>();
+    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
+    private List<PlayerEntity> players;
 
-    public Integer getId() {
-        return id;
+    public Integer getTeamId() {
+        return teamId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setTeamId(Integer teamId) {
+        this.teamId = teamId;
     }
 
     public String getCountry() {
@@ -58,11 +50,11 @@ public class Team {
         this.logo = logo;
     }
 
-    public Set<Player> getPlayers() {
+    public List<PlayerEntity> getPlayers() {
         return players;
     }
 
-    public void setPlayers(Set<Player> players) {
+    public void setPlayers(List<PlayerEntity> players) {
         this.players = players;
     }
 }
