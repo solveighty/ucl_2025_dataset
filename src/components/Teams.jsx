@@ -44,7 +44,7 @@ const Teams = () => {
           <Card component={Link} to={`/teams/${team.teamId}`} sx={{ textDecoration: 'none' }}>
             <CardMedia
               component="img"
-              height="140"
+              height="120"
               image={team.logo} // La URL del logo del equipo
               alt={team.team} // Nombre del equipo
             />

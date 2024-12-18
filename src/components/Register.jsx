@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom';
 const Register = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    username: '',
+    usuario: '',
+    nombre: '',
     email: '',
     password: '',
     confirmPassword: ''
@@ -14,22 +15,24 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (formData.password !== formData.confirmPassword) {
       setError('Passwords do not match');
       return;
     }
 
     try {
-      const response = await fetch('http://your-backend-url/auth/register', {
+      const response = await fetch('http://localhost:8080/usuarios/crearusuario', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          username: formData.username,
+          usuario: formData.usuario,
+          nombre: formData.nombre,
           email: formData.email,
-          password: formData.password
+          password: formData.password,
+          rol: 'NORMAL'  // Asignamos el rol por defecto
         })
       });
 
@@ -68,8 +71,18 @@ const Register = () => {
         fullWidth
         margin="normal"
         label="Username"
-        name="username"
-        value={formData.username}
+        name="usuario"
+        value={formData.usuario}
+        onChange={handleChange}
+        required
+      />
+
+      <TextField
+        fullWidth
+        margin="normal"
+        label="Full Name"
+        name="nombre"
+        value={formData.nombre}
         onChange={handleChange}
         required
       />
